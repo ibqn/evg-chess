@@ -1,8 +1,8 @@
 bin_PROGRAMS = \
-	test_move
+	test-move
 
 test_move_SOURCES = \
-    test_move.vala \
+    test-move.vala \
 	enums.vala \
     move.vala \
     position.vala \
@@ -15,7 +15,8 @@ AM_CFLAGS = \
 	$(EVG_CFLAGS) \
 	-Wall
 
-AM_CPPFLAGS = 
+AM_CPPFLAGS = \
+    -DGETTEXT_PACKAGE=\""$(GETTEXT_PACKAGE)"\"
 
 
 AM_VALAFLAGS = \
