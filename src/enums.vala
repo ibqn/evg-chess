@@ -40,10 +40,10 @@ public enum ColorType {
     public string to_string() {
         switch (this) {
             case BLACK:
-                return ("Black");
+                return _("Black");
 
             case WHITE:
-                return ("White");
+                return _("White");
 
             default:
                 assert_not_reached();
