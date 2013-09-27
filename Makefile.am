@@ -15,6 +15,9 @@ MAINTAINERCLEANFILES = \
 	m4 \
 	missing \
 	$(VALA_SOURCES:.vala=.c) \
-	*.stamp
+	*.stamp \
+	*~ \
+	*/*~ \
+	*/*/*~
 
 -include $(top_srcdir)/git.mk
