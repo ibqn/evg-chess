@@ -20,6 +20,7 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The name of the gettext
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_CC_STDC
+AC_PROG_INSTALL
 AM_PROG_VALAC([0.22])
 
 # Checks for libraries.
@@ -32,7 +33,8 @@ LT_INIT([disable-static])
 
 # Checks for modules.
 pkg_modules="glib-2.0 \
-             gobject-2.0"
+             gio-2.0 \
+             gtk+-3.0"
 
 PKG_CHECK_MODULES(EVG, [$pkg_modules])
 # This variables are defined by pkg-config modules
