@@ -16,12 +16,12 @@
   * Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   */
 
-int main (string[] args) {
-    Intl.bindtextdomain (Config.GETTEXT_PACKAGE, Config.EVGLOCALEDIR);
-    Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
-    Intl.textdomain (Config.GETTEXT_PACKAGE);
+namespace Evg {
 
-    var app = new Evg.Application ();
-    return app.run (args);
+public class Window : Gtk.ApplicationWindow {
+    public Window (Application app) {
+        Object (application: app);
+    }
 }
 
+} // namespace Evg
