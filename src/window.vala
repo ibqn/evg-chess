@@ -18,9 +18,12 @@
 
 namespace Evg {
 
+[GtkTemplate (ui = "/org/evg/chess/ui/window.ui")]
 public class Window : Gtk.ApplicationWindow {
     public Window (Application app) {
         Object (application: app);
+
+        show_all ();
     }
 }
 
