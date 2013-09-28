@@ -18,7 +18,7 @@
 
 namespace Evg {
 
-public interface Position {
+public interface Position : Object{
     public void set_startup () {
     }
 
@@ -26,16 +26,16 @@ public interface Position {
 
     public abstract void add_piece (PieceType piece, SquareType square);
 
-    public void remove_piece (SquareType square) {
+    public virtual void remove_piece (SquareType square) {
         add_piece (PieceType.EMPTY, square);
     }
 
-    public void move_piece (SquareType from, SquareType to) {
+    public virtual void move_piece (SquareType from, SquareType to) {
         add_piece (get_piece (from), to);
         remove_piece (from);
     }
 
-    public PieceType get_piece (SquareType square) {
+    public virtual PieceType get_piece (SquareType square) {
         return PieceType.EMPTY;
     }
 
@@ -69,6 +69,10 @@ public class ChessPosition : Object, Position  {
         }
 
         return position;
+    }
+
+    public PieceType get_piece (SquareType square) {
+        return board[(int)square];
     }
 }
 
