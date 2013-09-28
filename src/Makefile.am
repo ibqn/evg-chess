@@ -18,6 +18,7 @@ evg_chess_SOURCES = \
     position.vala \
     application.vala \
     window.vala \
+    board.vala \
     main.vala \
     config.vapi
 
@@ -34,13 +35,15 @@ AM_CFLAGS = \
 
 AM_CPPFLAGS = \
     -DGETTEXT_PACKAGE=\""$(GETTEXT_PACKAGE)"\" \
-    -DEVGLOCALEDIR=\""$(localedir)"\"
+    -DEVGLOCALEDIR=\""$(localedir)"\" \
+    -DEVGDATADIR=\""$(datadir)"\"
 
 AM_VALAFLAGS = \
     --target-glib 2.38 \
     --enable-experimental \
     --pkg gio-2.0 \
     --pkg gtk+-3.0 \
+    --pkg librsvg-2.0 \
     --gresources  $(top_srcdir)/data/evg-chess.gresource.xml
 
 EXTRA_DIST = \
