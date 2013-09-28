@@ -34,7 +34,8 @@ LT_INIT([disable-static])
 # Checks for modules.
 pkg_modules="glib-2.0 \
              gio-2.0 \
-             gtk+-3.0"
+             librsvg-2.0 \
+             gtk+-3.0 >= 3.10"
 
 PKG_CHECK_MODULES(EVG, [$pkg_modules])
 # This variables are defined by pkg-config modules
@@ -48,6 +49,7 @@ PKG_CHECK_MODULES(EVG, [$pkg_modules])
 
 AC_CONFIG_FILES([Makefile
                  po/Makefile.in
+                 data/Makefile
                  src/Makefile])
 
 AC_OUTPUT
