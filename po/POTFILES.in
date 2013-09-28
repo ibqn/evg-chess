@@ -1,1 +1,4 @@
+data/ui/window.ui
+
+src/application.vala
 src/enums.vala
