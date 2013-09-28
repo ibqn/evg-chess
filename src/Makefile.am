@@ -43,6 +43,9 @@ AM_VALAFLAGS = \
     --pkg gtk+-3.0 \
     --gresources  $(top_srcdir)/data/evg-chess.gresource.xml
 
+EXTRA_DIST = \
+    $(resource_files)
+
 CLEANFILES = \
     $(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
     *_vala.stamp
