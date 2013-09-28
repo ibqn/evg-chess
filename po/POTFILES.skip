@@ -1,2 +1,6 @@
 src/application.c
+src/board.c
 src/enums.c
+src/move.c
+src/position.c
+src/window.c
