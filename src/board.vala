@@ -16,9 +16,7 @@
   * Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   */
 
-namespace Evg {
-
-class Board : Gtk.DrawingArea {
+public class Evg.Board : Gtk.DrawingArea {
     private Position? position;
 
     private Cairo.ImageSurface temp_surface;
@@ -51,7 +49,7 @@ class Board : Gtk.DrawingArea {
         for( int c = 0; c < 2; c ++ ) {
             for(int p = 0; p < 6; p ++ ) {
                 string path = Path.build_path (Path.DIR_SEPARATOR_S, folder, file.printf (color[c], piece[p]));
-                render_piece (path, 6 * c + p );
+                render_piece (path, 6 * c + p);
             }
         }
 
@@ -147,8 +145,8 @@ class Board : Gtk.DrawingArea {
             return false;
         }
 
-        int file = (int)((event.x - this.x_origin) / square_size);
-        int rank = (int)((event.y - this.y_origin) / square_size);
+        int file = (int)((event.x - x_origin) / square_size);
+        int rank = (int)((event.y - y_origin) / square_size);
         int square;
 
         if (flip_board) {
@@ -176,4 +174,3 @@ class Board : Gtk.DrawingArea {
     }
 }
 
-} // namespace Evg
