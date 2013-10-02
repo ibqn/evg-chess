@@ -32,8 +32,8 @@ AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 LT_INIT([disable-static])
 
 # Checks for modules.
-pkg_modules="glib-2.0 \
-             gio-2.0 \
+pkg_modules="glib-2.0 >= 2.38 \
+             gio-2.0 >= 2.38 \
              librsvg-2.0 \
              gtk+-3.0 >= 3.10"
 
