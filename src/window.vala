@@ -16,20 +16,20 @@
   * Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   */
 
-namespace Evg {
-
 [GtkTemplate (ui = "/org/evg/chess/ui/window.ui")]
-public class Window : Gtk.ApplicationWindow {
-    private Board board;
+public class Evg.Window : Gtk.ApplicationWindow {
+    private Evg.Board board;
+
+    [GtkChild]
+    private Evg.Board board1;
 
     public Window (Application app) {
         Object (application: app);
 
-        board = new Board ();
+        board = new Evg.Board ();
         add (board);
 
         show_all ();
     }
 }
 
-} // namespace Evg
