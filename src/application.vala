@@ -16,9 +16,7 @@
   * Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   */
 
-namespace Evg {
-
-public class Application : Gtk.Application {
+public class Evg.Application : Gtk.Application {
     private static bool print_version;
     private const OptionEntry[] option_entries = {
         { "version", 'v', 0, OptionArg.NONE, ref print_version, N_("Print version information and exit"), null },
@@ -37,7 +35,6 @@ public class Application : Gtk.Application {
         if (window == null) {
             window = new Window (this);
         }
-        stdout.printf ("activated...\n");
     }
 
     protected override bool local_command_line ([CCode (array_length = false, array_null_terminated = true)] ref unowned string[] arguments, out int exit_status) {
@@ -67,4 +64,3 @@ public class Application : Gtk.Application {
     }
 }
 
-} // namespace Evg
