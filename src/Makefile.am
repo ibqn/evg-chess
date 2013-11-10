@@ -7,19 +7,26 @@ test_move_SOURCES = \
 	enums.vala \
     move.vala \
     position.vala \
+    game.vala \
+    game-store.vala \
 	config.vapi
 
 BUILT_SOURCES = evg-resources.c
 
-evg_chess_SOURCES = \
-    $(BUILT_SOURCES) \
+VALA_SOURCES = \
     enums.vala \
     move.vala \
+    game.vala \
+    game-store.vala \
     position.vala \
     application.vala \
     window.vala \
     board.vala \
-    main.vala \
+    main.vala
+
+evg_chess_SOURCES = \
+    $(BUILT_SOURCES) \
+    $(VALA_SOURCES) \
     config.vapi
 
 resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(top_srcdir)/data $(top_srcdir)/data/evg-chess.gresource.xml)
