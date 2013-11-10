@@ -54,9 +54,8 @@ public class Evg.Board : Gtk.DrawingArea {
         }
 
         position = null;
-        position = new ChessPosition ();
-        //position.set_init ();
-        position.add_piece (PieceType.BLACK_PAWN, SquareType.A2);
+        position = new Evg.ChessPosition ();
+        position.set_init ();
 
         flip_board = false;
         selected_square = -1;

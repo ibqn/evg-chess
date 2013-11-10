@@ -18,9 +18,8 @@
 
 namespace Evg {
 
-public interface Position : Object{
-    public void set_startup () {
-    }
+public interface Position : Object {
+    public abstract void set_init ();
 
     public abstract void set_empty ();
 
@@ -73,6 +72,34 @@ public class ChessPosition : Object, Position  {
 
     public PieceType get_piece (SquareType square) {
         return board[(int)square];
+    }
+
+    public void set_init () {
+        board[(int)Evg.SquareType.A1] = Evg.PieceType.WHITE_ROOK;
+        board[(int)Evg.SquareType.B1] = Evg.PieceType.WHITE_KNIGHT;
+        board[(int)Evg.SquareType.C1] = Evg.PieceType.WHITE_BISHOP;
+        board[(int)Evg.SquareType.D1] = Evg.PieceType.WHITE_QUEEN;
+        board[(int)Evg.SquareType.E1] = Evg.PieceType.WHITE_KING;
+        board[(int)Evg.SquareType.F1] = Evg.PieceType.WHITE_BISHOP;
+        board[(int)Evg.SquareType.G1] = Evg.PieceType.WHITE_KNIGHT;
+        board[(int)Evg.SquareType.H1] = Evg.PieceType.WHITE_ROOK;
+
+        for (int i = (int)Evg.SquareType.A2; i <= (int)Evg.SquareType.H2; i ++) {
+            board[i] = Evg.PieceType.WHITE_PAWN;
+        }
+
+        board[(int)Evg.SquareType.A8] = Evg.PieceType.BLACK_ROOK;
+        board[(int)Evg.SquareType.B8] = Evg.PieceType.BLACK_KNIGHT;
+        board[(int)Evg.SquareType.C8] = Evg.PieceType.BLACK_BISHOP;
+        board[(int)Evg.SquareType.D8] = Evg.PieceType.BLACK_QUEEN;
+        board[(int)Evg.SquareType.E8] = Evg.PieceType.BLACK_KING;
+        board[(int)Evg.SquareType.F8] = Evg.PieceType.BLACK_BISHOP;
+        board[(int)Evg.SquareType.G8] = Evg.PieceType.BLACK_KNIGHT;
+        board[(int)Evg.SquareType.H8] = Evg.PieceType.BLACK_ROOK;
+
+        for (int i = (int)Evg.SquareType.A7; i <= (int)Evg.SquareType.H7; i ++) {
+            board[i] = Evg.PieceType.BLACK_PAWN;
+        }
     }
 }
 
