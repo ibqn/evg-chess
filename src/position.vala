@@ -29,6 +29,10 @@ public interface Position : Object {
         add_piece (PieceType.EMPTY, square);
     }
 
+    public abstract void apply (Evg.Move move);
+
+    public abstract void undo (Evg.Move move);
+
     public virtual void move_piece (SquareType from, SquareType to) {
         add_piece (get_piece (from), to);
         remove_piece (from);
@@ -100,6 +104,12 @@ public class ChessPosition : Object, Position  {
         for (int i = (int)Evg.SquareType.A7; i <= (int)Evg.SquareType.H7; i ++) {
             board[i] = Evg.PieceType.BLACK_PAWN;
         }
+    }
+
+    public void apply (Evg.Move move) {
+    }
+
+    public void undo (Evg.Move move) {
     }
 }
 
