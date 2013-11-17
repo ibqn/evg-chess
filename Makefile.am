@@ -1,6 +1,8 @@
+include $(top_srcdir)/Makefile.decl
+
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS} -I m4
 
-SUBDIRS = data po src
+SUBDIRS = data po src tests
 
 MAINTAINERCLEANFILES = \
     $(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
