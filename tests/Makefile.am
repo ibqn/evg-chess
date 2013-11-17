@@ -30,3 +30,5 @@ tests_CPPFLAGS = \
 tests_LDADD = \
     $(LIBEVG_LIBS) $(top_srcdir)/src/libevg-1.la \
     $(NULL)
+
+-include $(top_srcdir)/git.mk
