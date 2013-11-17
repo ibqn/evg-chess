@@ -16,10 +16,10 @@
   * Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   */
 
-public interface Game : Object {
+public interface Evg.Game : Object {
 }
 
-public class Evg.ChessGame : Object, Game {
+public class Evg.ChessGame : Object, Evg.Game {
     private Evg.Position position;
     private Evg.GameStore game_store;
     private int ply;
