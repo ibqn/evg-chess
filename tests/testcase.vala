@@ -53,9 +53,7 @@ public abstract class Evg.TestCase : Object {
 		private TestMethod test;
 		private TestCase test_case;
 
-		public Adaptor (string name,
-		                owned TestMethod test,
-		                TestCase test_case) {
+		public Adaptor (string name, owned TestMethod test, TestCase test_case) {
 			this.name = name;
 			this.test = (owned)test;
 			this.test_case = test_case;
