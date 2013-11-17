@@ -9,6 +9,14 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([src/move.vala])
 AC_CONFIG_HEADERS([config.h])
 
+# API versioning
+EVG_API_VERSION=1.0
+EVG_API_MAJOR_VERSION=1
+
+AC_SUBST([EVG_API_VERSION])
+AC_SUBST([EVG_API_MAJOR_VERSION])
+AC_SUBST([EVG_API_VERSION_U],[AS_TR_SH([$EVG_API_VERSION])])
+
 # Gettext integration
 IT_PROG_INTLTOOL(0.50)
 AM_GNU_GETTEXT([external])
@@ -43,6 +51,15 @@ PKG_CHECK_MODULES(EVG, [$pkg_modules])
 # AC_SUBST(EVG_LIBS)
 # Checks for header files.
 
+LIBEVG_LT_VERSION="1:0:0"
+AC_SUBST(LIBEVG_LT_VERSION)
+
+# Checks for modules.
+pkg_modules="glib-2.0 >= 2.38 \
+             gobject-2.0 >= 2.38"
+
+PKG_CHECK_MODULES(LIBEVG, [$pkg_modules])
+
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
@@ -50,7 +67,8 @@ PKG_CHECK_MODULES(EVG, [$pkg_modules])
 AC_CONFIG_FILES([Makefile
                  po/Makefile.in
                  data/Makefile
-                 src/Makefile])
+                 src/Makefile
+                 tests/Makefile])
 
 AC_OUTPUT
 
