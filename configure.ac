@@ -61,6 +61,7 @@ pkg_modules="glib-2.0 >= 2.38 \
 PKG_CHECK_MODULES(LIBEVG, [$pkg_modules])
 
 # Checks for typedefs, structures, and compiler characteristics.
+GOBJECT_INTROSPECTION_CHECK([0.9.0])
 
 # Checks for library functions.
 
