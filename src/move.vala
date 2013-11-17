@@ -19,16 +19,22 @@
 namespace Evg {
 
 private enum MoveMask {
-    FROM       = 63,
-    TO         = 4032,
-    PIECE      = 61440,
-    CAPTURE    = 7864320,
+    FROM         = 63,
+    TO           = 4032,
+    PIECE        = 61440,
+    IS_CASTLE    = 65536,
+    IS_PROMOTION = 131072,
+    IS_CAPTURE   = 262144,
+    CAPTURE      = 7864320,
 }
 
 private enum MoveShift {
-    TO        = 6,
-    PIECE     = 12,
-    CAPTURE   = 19,
+    TO           = 6,
+    PIECE        = 12,
+    IS_CASTLE    = 16,
+    IS_PROMOTION = 17,
+    IS_CAPTURE   = 18,
+    CAPTURE      = 19,
 }
 
 /*
@@ -101,6 +107,18 @@ public struct Move {
 
     public PieceType get_capture () {
         return (PieceType)((move_data & MoveMask.CAPTURE) >> MoveShift.CAPTURE);
+    }
+
+    public bool is_capture () {
+        return (move_data & MoveMask.IS_CAPTURE) == MoveMask.IS_CAPTURE;
+    }
+
+    public bool is_castle () {
+        return (move_data & MoveMask.IS_CASTLE) == MoveMask.IS_CASTLE;
+    }
+
+    public bool is_promotion () {
+        return (move_data & MoveMask.IS_PROMOTION) == MoveMask.IS_PROMOTION;
     }
 }
 
