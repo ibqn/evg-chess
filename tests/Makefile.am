@@ -31,4 +31,9 @@ tests_LDADD = \
     $(LIBEVG_LIBS) $(top_srcdir)/src/libevg-1.la \
     $(NULL)
 
+CLEANFILES = \
+    $(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
+    *_vala.stamp \
+    $(NULL)
+
 -include $(top_srcdir)/git.mk
