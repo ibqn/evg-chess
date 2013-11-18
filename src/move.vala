@@ -61,6 +61,10 @@ public struct Move {
         move_data = 0;
     }
 
+    public bool is_empty () {
+        return move_data == 0;
+    }
+
     public void set_from (SquareType square) {
         assert (square <= SquareType.H8);
         assert (SquareType.A1 <= square);
