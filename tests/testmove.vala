@@ -24,6 +24,8 @@ public class MoveTests : Evg.TestCase {
         base ("Move");
 
         add_test ("[Move] type correctness", test_type_correctness);
+        add_test ("[Move] getters and setters", test_get_set_methods);
+        add_test ("[Move] generatrs", test_move_generators);
     }
 
     public override void set_up () {
@@ -35,5 +37,21 @@ public class MoveTests : Evg.TestCase {
 	}
 
     public void test_type_correctness () {
+        assert (test_move != null);
+
+        assert (test_move.is_empty ());
+    }
+
+    public void test_get_set_methods () {
+        test_move.set_piece (Evg.PieceType.WHITE_PAWN);
+        assert (test_move.get_piece () == Evg.PieceType.WHITE_PAWN);
+
+        test_move.set_from (Evg.SquareType.E2);
+        test_move.set_to (Evg.SquareType.E4);
+        assert (test_move.get_from () == Evg.SquareType.E2);
+        assert (test_move.get_to () == Evg.SquareType.E4);
+    }
+
+    public void test_move_generators () {
     }
 }
