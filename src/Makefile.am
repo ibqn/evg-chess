@@ -94,9 +94,9 @@ test_move_SOURCES = \
 	config.vapi \
 	$(NULL)
 
-BUILT_SOURCES = evg-resources.c
+evg_chess_BUILT_SOURCES = evg-resources.c
 
-VALA_SOURCES = \
+evg_chess_VALA_SOURCES = \
     application.vala \
     window.vala \
     board.vala \
@@ -104,8 +104,8 @@ VALA_SOURCES = \
     $(NULL)
 
 evg_chess_SOURCES = \
-    $(BUILT_SOURCES) \
-    $(VALA_SOURCES) \
+    $(evg_chess_BUILT_SOURCES) \
+    $(evg_chess_VALA_SOURCES) \
     evg-@EVG_API_VERSION@.vapi \
     config.vapi \
     $(NULL)
