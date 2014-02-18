@@ -17,7 +17,7 @@
   */
 
 public class Evg.Board : Gtk.DrawingArea {
-    private Position? position;
+    private Position position;
 
     private Cairo.ImageSurface temp_surface;
     private int surface_size;
@@ -34,8 +34,8 @@ public class Evg.Board : Gtk.DrawingArea {
     private bool flip_board;
     private int selected_square;
 
-    public Board () {
-        set_size_request (200, 200);
+    construct {
+        set_size_request (400, 400);
         add_events (Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.SCROLL_MASK);
 
         surface_size = 100;
