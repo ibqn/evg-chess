@@ -18,16 +18,11 @@
 
 [GtkTemplate (ui = "/org/evg/chess/ui/window.ui")]
 public class Evg.Window : Gtk.ApplicationWindow {
-    private Evg.Board board;
-
     [GtkChild]
-    private Evg.Board board1;
+    private Evg.Board board;
 
     public Window (Application app) {
         Object (application: app);
-
-        board = new Evg.Board ();
-        add (board);
 
         show_all ();
     }
