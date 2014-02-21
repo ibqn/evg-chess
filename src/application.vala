@@ -17,9 +17,8 @@
   */
 
 public class Evg.Application : Gtk.Application {
-    private static bool print_version;
     private const OptionEntry[] option_entries = {
-        { "version", 'v', 0, OptionArg.NONE, ref print_version, N_("Print version information and exit"), null },
+        { "version", 'v', 0, OptionArg.NONE, null, N_("Print version information and exit"), null },
         { null },
     };
 
@@ -27,6 +26,8 @@ public class Evg.Application : Gtk.Application {
 
     public Application  () {
         Object (application_id: "org.evg.chess");
+
+        add_main_option_entries (option_entries);
 
         window = null;
     }
@@ -38,30 +39,13 @@ public class Evg.Application : Gtk.Application {
         window.present ();
     }
 
-    protected override bool local_command_line ([CCode (array_length = false, array_null_terminated = true)] ref unowned string[] arguments, out int exit_status) {
-        var option_context = new OptionContext (_("- Evg Chess App"));
-
-        option_context.add_main_entries (option_entries, Config.GETTEXT_PACKAGE);
-        option_context.add_group (Gtk.get_option_group (true));
-
-        // Workaround related to bug report https://bugzilla.gnome.org/show_bug.cgi?id=642885
-        unowned string[] args = arguments;
-
-        try {
-            option_context.parse (ref args);
-        } catch (OptionError e) {
-            message ("Parsing of option arguments failed due to: \"%s\"", e.message);
-            exit_status = 1;
-            return true;
-        }
-
-        if (print_version) {
+    protected override int handle_local_options (GLib.VariantDict options) {
+        if (options.contains ("version")) {
             print ("%s %s\n", Environment.get_application_name (), Config.PACKAGE_VERSION);
-            exit_status = 0;
-            return true;
+            return 0;
         }
 
-        return base.local_command_line (ref arguments, out exit_status);
+        return -1;
     }
 }
 
