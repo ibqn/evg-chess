@@ -19,12 +19,24 @@
 [GtkTemplate (ui = "/org/evg/chess/ui/window.ui")]
 public class Evg.Window : Gtk.ApplicationWindow {
     [GtkChild]
-    private Evg.Board board;
+    private Evg.Notebook notebook;
+    private const GLib.ActionEntry[] action_entries = {
+        { "new-tab", new_tab_callback },
+    };
 
     public Window (Application app) {
         Object (application: app);
 
+        add_action_entries (action_entries, this);
+
+        new_tab_callback ();
+
         show_all ();
+    }
+
+    private void new_tab_callback () {
+        var board = new Evg.Board ();
+        notebook.insert_tab (board, -1);
     }
 }
 

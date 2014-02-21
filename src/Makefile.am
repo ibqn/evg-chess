@@ -98,6 +98,7 @@ evg_chess_BUILT_SOURCES = evg-resources.c
 
 evg_chess_VALA_SOURCES = \
     application.vala \
+    notebook.vala \
     window.vala \
     board.vala \
     main.vala \
