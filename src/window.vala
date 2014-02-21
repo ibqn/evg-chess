@@ -30,8 +30,6 @@ public class Evg.Window : Gtk.ApplicationWindow {
         add_action_entries (action_entries, this);
 
         new_tab_callback ();
-
-        show_all ();
     }
 
     private void new_tab_callback () {

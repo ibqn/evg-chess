@@ -35,6 +35,7 @@ public class Evg.Application : Gtk.Application {
         if (window == null) {
             window = new Window (this);
         }
+        window.present ();
     }
 
     protected override bool local_command_line ([CCode (array_length = false, array_null_terminated = true)] ref unowned string[] arguments, out int exit_status) {
