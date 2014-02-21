@@ -19,7 +19,7 @@
       </object>
     </child>
     <style>
-      <class name="close-button"/>
+      <class name="evg-close-button"/>
     </style>
   </template>
 </interface>

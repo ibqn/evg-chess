@@ -2,7 +2,6 @@
 <gresources>
   <gresource prefix="/org/evg/chess">
     <file>css/evg-chess.css</file>
-    <file>css/close-button.css</file>
     <file preprocess="xml-stripblanks">ui/window.ui</file>
     <file preprocess="xml-stripblanks">ui/tab-label.ui</file>
     <file preprocess="xml-stripblanks">ui/close-button.ui</file>

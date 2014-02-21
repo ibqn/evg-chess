@@ -96,16 +96,5 @@ namespace Evg {
 
     [GtkTemplate (ui = "/org/evg/chess/ui/close-button.ui")]
     class CloseButton : Gtk.Button {
-        construct {
-            var css_provider = new Gtk.CssProvider ();
-            try {
-                var file = File.new_for_uri ("resource:///org/evg/chess/css/close-button.css");
-                css_provider.load_from_file (file);
-            } catch (Error e) {
-                warning ("loading css: %s", e.message);
-            }
-            get_style_context ().add_provider (css_provider,
-                                               Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-        }
     }
 }

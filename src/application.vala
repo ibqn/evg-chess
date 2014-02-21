@@ -12,7 +12,7 @@
   * for more details.
   *
   * You should have received a copy of the GNU General Public License along
-  * with GNOME Maps; if not, write to the Free Software Foundation,
+  * with this program; if not, write to the Free Software Foundation,
   * Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   */
 
@@ -37,6 +37,21 @@ public class Evg.Application : Gtk.Application {
             window = new Window (this);
         }
         window.present ();
+    }
+
+    protected override void startup () {
+        base.startup ();
+
+        var css_provider = new Gtk.CssProvider ();
+            try {
+                var file = File.new_for_uri ("resource:///org/evg/chess/css/evg-chess.css");
+                css_provider.load_from_file (file);
+            } catch (Error e) {
+                warning ("loading css: %s", e.message);
+            }
+            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
+                                                      css_provider,
+                                                      Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 
     protected override int handle_local_options (GLib.VariantDict options) {
